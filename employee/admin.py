@@ -7,6 +7,8 @@ from .models import BlogPosts
 class EmployeeAdmin(admin.ModelAdmin):
     list_display = ('name', 'title')
 
+class BlogAdmin(admin.ModelAdmin):
+    list_display = ('title', 'description')
 
 admin.site.register(Employee, EmployeeAdmin)
-admin.site.register(BlogPosts)
+admin.site.register(BlogPosts, BlogAdmin)

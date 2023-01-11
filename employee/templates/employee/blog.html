@@ -21,7 +21,7 @@
                             <img class="card-img-top" src="{{featured.image.url}}" alt="..." />
                         {%endif%}</a>
                         <div class="card-body">
-                            <div class="small text-muted">January 1, 2022</div>
+                            <div class="small text-muted"> {{ featured.created_at }}</div>
                             <h2 class="card-title">{{featured.title}}</h2>
                             <p class="card-text">{{featured.description}}</p>
                             <a class="btn btn-primary" href="{% url 'blog' id=featured.id %}">Read more →</a>
@@ -41,7 +41,7 @@
                                 {%endif%}
                                 </a>
                                 <div class="card-body">
-                                    <div class="small text-muted">January 1, 2022</div>
+                                    <div class="small text-muted"> {{ post.created_at }}</div>
                                     <h2 class="card-title h4">{{post.title}}</h2>
                                     <p class="card-text">{{post.description}}</p>
                                     <a class="btn btn-primary" href="{% url 'blog' id=post.id %}">Read more →</a>
