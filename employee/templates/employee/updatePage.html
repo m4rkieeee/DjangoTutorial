@@ -1,12 +1,11 @@
 {% extends 'main.html'%}
 {% block content %}
 <h2>
-    Update Employee
+    Update User
 </h2>
-<form action="updateData/{{Employee.id}}" method="post">
+<form action="updateData/{{user.id}}" method="post">
     {% csrf_token %}
-    Name: <input name="name" value="{{Employee.name}}"/>
-    Title: <input name="title" value="{{Employee.title}}"/>
+    Name: <input name="name" value="{{user.username}}"/>
     <input type="submit" value="Update" />
 </form>
 {% endblock content %}

@@ -9,44 +9,40 @@
               This is the list of all employees in the Company
             </p>
           </div>
-          {% if auth %}
-          <a href="{% url 'create' %}">
-            Create
-          </a>
-          {% endif %}
         </div>
       </section>
 
       <div class="album py-5 bg-light">
         <div class="container">
           <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-            {%for employee in myEmployees%}
-            {% cycle 'bg-warning' 'bg-danger' 'bg-primary' as bgcolor silent %}
+            {%for user in users%}
             <div class="col">
               <div class="card shadow-sm">
                 <div class="card-body">
-                  <h5 class="card-title {{bgcolor}}">{{ employee.name }}</h5>
-                  <p class="card-text">{{ employee.title }}</p>
+                  <h5 class="card-title">{{ user.username }}</h5>
+                  <p class="card-text"></p>
                   <div
                     class="d-flex justify-content-between align-items-center"
                   >
+                  {% if request.user.is_staff %}
                     <div class="btn-group">
                       <a
-                        href="{% url 'update' id=employee.id %}"
+                        href="{% url 'update' id=user.id %}"
                         type="button"
                         class="btn btn-sm btn-outline-secondary"
                       >
                         Edit
                     </a>
                       <a
-                        href="{% url 'delete' id=employee.id %}"
+                        href="{% url 'delete' id=user.id %}"
                         type="button"
                         class="btn btn-sm btn-outline-secondary"
                       >
                         Delete
                     </a>
                     </div>
-                    <small class="text-muted">{{ employee.created_at }}</small>
+                    {% endif %}
+                    <small class="text-muted"></small>
                   </div>
                 </div>
               </div>
