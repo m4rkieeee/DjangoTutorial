@@ -9,9 +9,11 @@
               This is the list of all employees in the Company
             </p>
           </div>
+          {% if auth %}
           <a href="{% url 'create' %}">
             Create
           </a>
+          {% endif %}
         </div>
       </section>
 
